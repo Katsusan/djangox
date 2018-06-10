@@ -11,8 +11,9 @@ class Article(models.Model):
 	created_time = models.DateTimeField("the create time of article", auto_now_add=True)
 	modified_time = models.DateTimeField("the article's last modified time", auto_now=True)
 	created_date = models.DateField(auto_now_add=True)
-	tag = models.ManyToManyField('Tag')
-	comment = models.ForeignKey("Comment", to_field='comment_content', on_delete=models.CASCADE, default=None)
+	tag = models.ManyToManyField('Tag', null=True, blank=True)
+	comment = models.ForeignKey("Comment", to_field='comment_content', on_delete=models.CASCADE, null=True, blank=True)
+	access_times = models.IntegerField(default=1, editable=False)
 
 	def __str__(self):
 		return u'%s' %(self.title)
@@ -20,7 +21,7 @@ class Article(models.Model):
 class Comment(models.Model):
 	comment_id = models.AutoField(primary_key=True)
 	comment_time = models.DateTimeField("commit time of comment", auto_now_add=True)
-	comment_content = models.CharField(max_length=255, unique=True)
+	comment_content = models.CharField(max_length=255, unique=True,null=True, blank=True)
 	commit_nickname = models.CharField(max_length=64)
 	commit_email = models.EmailField()
 
