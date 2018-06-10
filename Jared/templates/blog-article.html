@@ -1,0 +1,122 @@
+{% extends "blog-base.html" %}
+
+{% block maincontent %}
+
+{% load staticfiles %}
+
+<!-- nav start -->
+<nav class="am-g am-g-fixed blog-fixed blog-nav">
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" ><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        
+          <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+              <li class="am-active"><a href="lw-index.html">首页</a></li>
+              <li class="am-dropdown" data-am-dropdown>
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                  首页布局 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                  <li><a href="lw-index.html">1. blog-index-standard</a></li>         
+                  <li><a href="lw-index-nosidebar.html">2. blog-index-nosidebar</a></li>
+                  <li><a href="lw-index-center.html">3. blog-index-layout</a></li>
+                  <li><a href="lw-index-noslider.html">4. blog-index-noslider</a></li>
+                </ul>
+              </li>
+              <li><a href="lw-article.html">标准文章</a></li>
+              <li><a href="lw-img.html">图片库</a></li>
+              <li><a href="lw-article-fullwidth.html">全宽页面</a></li>
+              <li><a href="lw-timeline.html">存档</a></li>
+            </ul>
+            <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
+              <div class="am-form-group">
+                <input type="text" class="am-form-field am-input-sm" placeholder="搜索">
+              </div>
+            </form>
+          </div>
+        </nav>
+        <!-- nav end -->
+        <hr>
+        <!-- content start -->
+        <div class="am-g am-g-fixed blog-fixed blog-content">
+            <div class="am-u-sm-12">
+              <article class="am-article blog-article-p">
+                <div class="am-article-hd">
+                  <h1 class="am-article-title blog-text-center"> </h1>
+                  <p class="am-article-meta blog-text-center">
+                      <span><a class="blog-color">article &nbsp;</a></span>-
+                      <span><a class="blog-author">@  &nbsp;</a></span>-
+                      <span><a class="blog-date"> </a></span>
+                  </p>
+                </div>        
+                <div class="am-article-bd">
+                <img src="{% static 'i/f18.jpg' %}" alt="" class="blog-entry-img blog-article-margin">          
+                <p class="am-article-body">
+
+                </p>
+                </div>
+              </article>
+                
+                <div class="am-g blog-article-widget blog-article-margin">
+                  <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+                    <span class="am-icon-tags"> &nbsp;</span>
+                    <hr>
+                    <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+                    <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
+                    <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                  </div>
+                </div>
+        
+                <!-- deprecated
+                <hr>
+                <div class="am-g blog-author blog-article-margin">
+                  <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                    <img src="assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
+                  </div>
+                  <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+                  <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">amazeui</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </div>
+                <hr>
+                -->
+                <ul class="am-pagination blog-article-margin">
+                  <li class="am-pagination-prev"><a href="#" class="">&laquo; 一切的回顾</a></li>
+                  <li class="am-pagination-next"><a href="">不远的未来 &raquo;</a></li>
+                </ul>
+                
+                <hr>
+        
+                <form class="am-form am-g">
+                    <h3 class="blog-comment">评论</h3>
+                  <fieldset>
+                    <div class="am-form-group am-u-sm-4 blog-clear-left">
+                      <input type="text" class="" placeholder="名字">
+                    </div>
+                    <div class="am-form-group am-u-sm-4">
+                      <input type="email" class="" placeholder="邮箱">
+                    </div>
+        
+                    <div class="am-form-group am-u-sm-4 blog-clear-right">
+                      <input type="password" class="" placeholder="网站">
+                    </div>
+                
+                    <div class="am-form-group">
+                      <textarea class="" rows="5" placeholder="一字千金"></textarea>
+                    </div>
+                
+                    <p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+                  </fieldset>
+                </form>
+        
+                <hr>
+            </div>
+        </div>
+        <!-- content end -->
+{% endblock maincontent%}
+
+
+{% block initscript %}
+
+  init_article({{ request_dic.article_id }})
+
+{% endblock initscript %}
