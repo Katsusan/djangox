@@ -23,13 +23,13 @@ $(function() {
   
 });
 
-axios.defaults.baseURL = 'http://192.168.1.50:5000';
+axios.defaults.baseURL = 'http://192.168.1.2:80';
 
 
 page_config = {
   url: 'api/page',
   method: 'get',
-  baseURL: 'http://192.168.1.50',
+  baseURL: 'http://192.168.1.2',
   timeout: 2000,
   responseType: 'json',
   maxContentLength: '200000'
@@ -38,7 +38,7 @@ page_config = {
 artc_config = {
   url: 'api/article',
   method: 'get',
-  baseURL: 'http://192.168.1.50',
+  baseURL: 'http://192.168.1.2',
   timeout: 1000,
   responseType: 'json',
   maxContentLength: '200000'

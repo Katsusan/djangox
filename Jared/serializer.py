@@ -14,6 +14,8 @@ class ArticleSerializer(serializers.Serializer):
 
 	author = serializers.CharField(required=True, allow_blank=True, max_length=64)
 
+	created_date= serializers.DateField(required=True)
+
 	tag = serializers.SerializerMethodField()
 
 
@@ -29,6 +31,7 @@ class ArticleSerializer(serializers.Serializer):
 
 		return Article.objects.create(**validate_data)
 
+ 
 
 	def update(self, instance, validate_data):
 
