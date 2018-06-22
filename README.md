@@ -1,6 +1,8 @@
 # djangox
 
-django backend blog system
+django blog system
+
+django rest_framwork + AmazeUI
 
 go anyway.
 
