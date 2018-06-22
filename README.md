@@ -2,7 +2,7 @@
 
 django blog system
 
-django rest_framwork + AmazeUI
+django rest_framework + AmazeUI
 
 go anyway.
 
