@@ -17,8 +17,16 @@ from django.contrib import admin
 from django.urls import path, re_path
 from Jared import views
 
+import xadmin
+xadmin.autodiscover()
+
+from xadmin.plugins import xversion
+xversion.register_models()
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+	path('xadmin/', xadmin.site.urls),
 	path('index/', views.index_view),
 	re_path(r'^page/(?P<pn>[0-9]+)/$', views.article_pages),
 	re_path(r'^article/(?P<id>[0-9]+)/$', views.single_article),
